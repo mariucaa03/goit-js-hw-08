@@ -1,17 +1,16 @@
-import { galleryItems } from "./gallery-items.js";
+import { galleryItems } from './gallery-items.js';
 
-import SimpleLightbox from "simplelightbox";
-import "simplelightbox/dist/simple-lightbox.min.css";
-
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 console.log(galleryItems);
 
-const galleryStart = document.querySelector(".gallery");
+const galleryStart = document.querySelector('.gallery');
 
 function createImage() {
-    let galleryHTML = "";
+  let galleryHTML = '';
 
-    for (let i = 0; i < galleryItems.length; i++){
-        galleryHTML += `
+  for (let i = 0; i < galleryItems.length; i++) {
+    galleryHTML += `
          <li class = "gallery__item">
             <a class = "gallery__link" href = "${galleryItems[i].original}">
                 <img class = "gallery__image"
@@ -20,17 +19,16 @@ function createImage() {
                 alt = "${galleryItems[i].description}"
                 />
             </a>
-        </li>`
-    }
-    galleryStart.innerHTML = galleryHTML;
+        </li>`;
+  }
+  galleryStart.innerHTML = galleryHTML;
 }
 
 createImage();
 
-
 document.addEventListener('DOMContentLoaded', function () {
-    const lightbox = new SimpleLightbox('.gallery a', {
-      captionsData: 'alt',
-      captionDelay: 250
-    });
+  const lightbox = new SimpleLightbox('.gallery a', {
+    captionsData: 'alt',
+    captionDelay: 250,
   });
+});
